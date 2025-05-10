@@ -31,6 +31,8 @@
 <ul>
     @foreach (var user in users)
     {
-        <li>@user</li>
+        <li>
+            @user - <a href="/Home/ProfilGoruntule?kullanici=Ayse&hedef=@user">Görüntüle</a>
+        </li>
     }
 </ul>

@@ -1,14 +1,12 @@
-using System.Collections.Generic;
-
-namespace SosyalMedyaTakipSistemi.Models
+public static class UserData
 {
-    public static class UserData
+    public static Dictionary<string, HashSet<string>> Users = new()
     {
-        public static Dictionary<string, HashSet<string>> Users = new Dictionary<string, HashSet<string>>()
-        {
-            { "Ayse", new HashSet<string> { "Ali", "Mehmet", "Veli" } },
-            { "Ali", new HashSet<string> { "Ayse", "Mehmet" } },
-            { "Mehmet", new HashSet<string> { "Ali", "Veli" } },
-        };
-    }
+        { "Ayse", new HashSet<string> { "Ali", "Veli" } },
+        { "Ali", new HashSet<string> { "Ayse", "Mehmet" } },
+        { "Mehmet", new HashSet<string> { "Ali", "Veli" } }
+    };
+
+    public static Dictionary<string, Queue<string>> SonZiyaretler = new();
+    public static Dictionary<string, LinkedList<string>> OnerilenTakip = new();
 }

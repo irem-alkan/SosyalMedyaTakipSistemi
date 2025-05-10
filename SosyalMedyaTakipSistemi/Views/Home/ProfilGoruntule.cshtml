@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Kullanıcı Profili";
+    var ziyaretler = ViewBag.Ziyaretler as List<string>;
+    var oneriler = ViewBag.Oneriler as List<string>;
+}
+
+<h2>Profil Görüntüleme</h2>
+
+<h4>Son Ziyaret Ettiğin Kullanıcılar</h4>
+@if (ziyaretler != null && ziyaretler.Count > 0)
+{
+    <ul>
+        @foreach (var kisi in ziyaretler)
+        {
+            <li>@kisi</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Henüz ziyaret edilen kullanıcı yok.</p>
+}
+
+<h4>Takip Önerileri</h4>
+@if (oneriler != null && oneriler.Count > 0)
+{
+    <ul>
+        @foreach (var kisi in oneriler)
+        {
+            <li>@kisi</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Bu kullanıcıdan sana öneri yok.</p>
+}
+
+<a href="/Home/Index">↩ Ana Sayfa</a>

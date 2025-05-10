@@ -1,0 +1,36 @@
+@{
+    ViewBag.Title = "Kullanıcı Karşılaştır";
+    var users = ViewBag.Users as List<string>;
+}
+
+<h2>Kullanıcı Karşılaştır</h2>
+
+<form method="post" action="/Home/Compare">
+    <label>Kullanıcı 1:</label>
+    <select name="user1">
+        @foreach (var user in users)
+        {
+            <option value="@user">@user</option>
+        }
+    </select>
+
+    <label>Kullanıcı 2:</label>
+    <select name="user2">
+        @foreach (var user in users)
+        {
+            <option value="@user">@user</option>
+        }
+    </select>
+
+    <button type="submit">Karşılaştır</button>
+</form>
+
+<hr />
+
+<h3>Tüm Kullanıcılar</h3>
+<ul>
+    @foreach (var user in users)
+    {
+        <li>@user</li>
+    }
+</ul>

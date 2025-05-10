@@ -1,0 +1,31 @@
+@{
+    ViewBag.Title = "Karşılaştırma Sonuçları";
+}
+
+<h2>@ViewBag.User1 ve @ViewBag.User2 Takip Karşılaştırması</h2>
+
+<h4>Ortak Takip Ettikleri:</h4>
+<ul>
+    @foreach (var item in ViewBag.Ortak as List<string>)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<h4>Birleşim:</h4>
+<ul>
+    @foreach (var item in ViewBag.Birlesim as List<string>)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<h4>@ViewBag.User1'in Farklı Takip Ettikleri:</h4>
+<ul>
+    @foreach (var item in ViewBag.Fark as List<string>)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<a href="/Home/Index">↩ Geri Dön</a>

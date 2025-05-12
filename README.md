@@ -5,8 +5,8 @@ https://github.com/irem-alkan/SosyalMedyaTakipSistemi
 
 Grup Üyeleri:
 
-*Şaziye İrem ALKAN 032290032
-*Ali TURHAN 032290025
+Şaziye İrem ALKAN 032290032
+Ali TURHAN 032290025
 
  Projenin Amacı ve Kapsamı
 Bu projenin amacı, bir sosyal medya platformunda kullanıcıların takip ettikleri kişileri ayrık küme yapısı ile yönetmek, ortak takipçileri analiz etmek ve son gezilen profiller ile takip öneri sistemini gerçekleştirerek kullanıcı etkileşimini incelemektir. 

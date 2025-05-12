@@ -63,7 +63,7 @@ Dark Mode Geçişi: Tema bir butonla karanlık mod ve açık mod arasında geçi
 Modern Arayüz: Bootstrap 5 ve Bootstrap Icons kullanılarak kart, tablo ve form yapıları modernleştirildi. Responsive tasarıma uygundur.
 
 Sonuç
-Bu proje, sosyal medya ortamında kullanıcı takibi ve topluluk etkileşimlerinin veri yapıları aracılığıyla analiz edilmesini hedeflemiştir.
-Kullanılan 4 temel veri yapısı sadece kriteri karşılamak için değil, mantıklı ve bağlantılı şekilde sistem içine entegre edildi. 
-Geliştirilen sistem MVC mimarisine uygun şekilde yapılandırıldı, dinamik olarak takip önerileri ve son gezilen profiller özellikleri kazandırıldı.
+Bu proje, sosyal medya kullanıcılarının takip ilişkilerini analiz etmek, öneri sunmak ve son ziyaretleri kaydetmek gibi temel işlevleri, dört temel veri yapısıyla (Dictionary, HashSet, Queue, LinkedList) başarıyla gerçekleştirmiştir.
+Seçilen veri yapıları, sistemin hızlı çalışmasını ve dinamik içerik üretmesini sağlamış; küme işlemleri, geçmiş takibi ve öneri algoritmaları verimli biçimde uygulanmıştır. MVC mimarisiyle geliştirilen proje, modern arayüzü, dark mode özelliği ve kullanıcıya özel dashboard ile hem teknik hem görsel açıdan zenginleştirilmiştir.
+Sonuç olarak, bu proje hem veri yapılarının gerçek dünya senaryolarında nasıl etkili kullanılabileceğini göstermiş hem de yazılım geliştirme süreçlerine bütünsel bir yaklaşım sunmuştur.
 

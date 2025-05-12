@@ -5,6 +5,7 @@ https://github.com/irem-alkan/SosyalMedyaTakipSistemi
 
 Grup Üyeleri:
 Şaziye İrem ALKAN 032290032
+Ali TURHAN 032290025
 
  Projenin Amacı ve Kapsamı
 Bu projenin amacı, bir sosyal medya platformunda kullanıcıların takip ettikleri kişileri ayrık küme yapısı ile yönetmek, ortak takipçileri analiz etmek ve son gezilen profiller ile takip öneri sistemini gerçekleştirerek kullanıcı etkileşimini incelemektir. 
@@ -49,6 +50,17 @@ LinkedList      O(n)   O(1)  O(1)  Öneri listeleri
 Queue           O(1)   O(1)  O(1)  Ziyaret listesi
 HashSet         O(1)   O(1)  O(1)  Küme işlemleri
 
+Geliştirilen Özellikler:
+
+Kullanıcı Ekleme: Yeni kullanıcılar sisteme eklenebilir. Takip listeleri baştan tanımlanabilir.
+Kullanıcı Karşılaştırma: İki kullanıcı arasında ortak takip ettikleri kişiler, farkları ve birleşimi gösterilir.
+Takip Öneri Sistemi: Kullanıcının takip etmediği ama diğerlerinin takip ettiği kişiler öneri olarak sunulur.
+Ziyaret Geçmişi: Her kullanıcı son gezdiği 5 profili sırasıyla görebilir.
+Dashboard (Kullanıcı Paneli): Her kullanıcıya özel ekran. Takip ettikleri, takipçileri, ziyaret geçmişi ve önerileri özel olarak gösterir.
+Popüler Kullanıcılar Sayfası: En çok takip edilen 10 kullanıcı listelenir ve takipçi sayıları gösterilir.
+Kullanıcı Arama (Filtreleme): Tüm kullanıcılar içerisinde arama yapılabilir.
+Dark Mode Geçişi: Tema bir butonla karanlık mod ve açık mod arasında geçiş yapabilir. Seçim tarayıcıda kaydedilir.
+Modern Arayüz: Bootstrap 5 ve Bootstrap Icons kullanılarak kart, tablo ve form yapıları modernleştirildi. Responsive tasarıma uygundur.
 
 Sonuç
 Bu proje, sosyal medya ortamında kullanıcı takibi ve topluluk etkileşimlerinin veri yapıları aracılığıyla analiz edilmesini hedeflemiştir.

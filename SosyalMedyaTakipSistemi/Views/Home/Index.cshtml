@@ -1,38 +1,69 @@
 @{
     ViewBag.Title = "Kullanıcı Karşılaştır";
     var users = ViewBag.Users as List<string>;
+    var filtre = ViewBag.Filtre as string;
 }
 
-<h2>Kullanıcı Karşılaştır</h2>
+<div class="container mt-4">
+    <div class="bg-light dark-mode-bg p-4 rounded shadow-sm">
+        <h2 class="text-primary mb-4">
+            <i class="bi bi-people-fill"></i> Kullanıcı Karşılaştır
+        </h2>
 
-<form method="post" action="/Home/Compare">
-    <label>Kullanıcı 1:</label>
-    <select name="user1">
-        @foreach (var user in users)
+        <!-- Arama Formu -->
+        <form method="get" class="mb-4">
+            <input type="text" name="filtre" value="@filtre" class="form-control form-control-lg" placeholder="🔍 Kullanıcı adı ara..." />
+        </form>
+
+        @if (users != null && users.Any())
         {
-            <option value="@user">@user</option>
-        }
-    </select>
+            <!-- Karşılaştırma Formu -->
+            <form method="post" action="/Home/Compare" class="row g-3 mb-5">
+                <div class="col-md-5">
+                    <label for="user1" class="form-label fw-bold">Kullanıcı 1</label>
+                    <select name="user1" class="form-select form-select-lg" required>
+                        @foreach (var user in users)
+                        {
+                            <option value="@user">@user</option>
+                        }
+                    </select>
+                </div>
 
-    <label>Kullanıcı 2:</label>
-    <select name="user2">
-        @foreach (var user in users)
+                <div class="col-md-5">
+                    <label for="user2" class="form-label fw-bold">Kullanıcı 2</label>
+                    <select name="user2" class="form-select form-select-lg" required>
+                        @foreach (var user in users)
+                        {
+                            <option value="@user">@user</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        <i class="bi bi-arrow-left-right"></i> Karşılaştır
+                    </button>
+                </div>
+            </form>
+
+            <!-- Kullanıcı Listesi -->
+            <h3 class="text-success mb-3">
+                <i class="bi bi-person-lines-fill"></i> Tüm Kullanıcılar
+            </h3>
+
+            <ul class="list-group list-group-flush">
+                @foreach (var user in users)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center dark-mode-text">
+                        <span class="fw-bold">@user</span>
+                        <a href="/Home/ProfilGoruntule?kullanici=Ayse&hedef=@user" class="btn btn-outline-info btn-sm">Profili Gör</a>
+                    </li>
+                }
+            </ul>
+        }
+        else
         {
-            <option value="@user">@user</option>
+            <p class="text-muted">❌ Hiçbir kullanıcı bulunamadı.</p>
         }
-    </select>
-
-    <button type="submit">Karşılaştır</button>
-</form>
-
-<hr />
-
-<h3>Tüm Kullanıcılar</h3>
-<ul>
-    @foreach (var user in users)
-    {
-        <li>
-            @user - <a href="/Home/ProfilGoruntule?kullanici=Ayse&hedef=@user">Görüntüle</a>
-        </li>
-    }
-</ul>
+    </div>
+</div>

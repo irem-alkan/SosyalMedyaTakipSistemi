@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    var takipEttikleri = ViewBag.TakipEttikleri as IEnumerable<string>;
+    var takipciler = ViewBag.Takipciler as IEnumerable<string>;
+    var ziyaretler = ViewBag.Ziyaretler as List<string>;
+    var oneriler = ViewBag.Oneriler as List<string>;
+    var kullanici = ViewBag.Kullanici as string;
+}
+
+<div class="container mt-4">
+    <div class="bg-white shadow rounded p-4">
+
+        <h2 class="mb-4 text-center text-primary">
+            <i class="bi bi-person-circle"></i> @kullanici'nın Dashboard'ı
+        </h2>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card border-success">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-person-check-fill"></i> Takip Ettikleri
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @if (takipEttikleri != null && takipEttikleri.Any())
+                        {
+                            foreach (var item in takipEttikleri)
+                            {
+                                <li class="list-group-item">@item</li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">Hiç kimseyi takip etmiyor.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <i class="bi bi-people-fill"></i> Takipçileri
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @if (takipciler != null && takipciler.Any())
+                        {
+                            foreach (var item in takipciler)
+                            {
+                                <li class="list-group-item">@item</li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">Hiç takipçisi yok.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card border-info">
+                    <div class="card-header bg-info text-white">
+                        <i class="bi bi-clock-history"></i> Son Ziyaret Edilenler
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @if (ziyaretler != null && ziyaretler.Any())
+                        {
+                            foreach (var item in ziyaretler)
+                            {
+                                <li class="list-group-item">@item</li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">Henüz ziyaret yok.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <i class="bi bi-lightbulb-fill"></i> Takip Etmeniz Önerilenler
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @if (oneriler != null && oneriler.Any())
+                        {
+                            foreach (var item in oneriler)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    @item
+                                    <form method="post" asp-action="TakipEt" class="m-0">
+                                        <input type="hidden" name="takipeden" value="@kullanici" />
+                                        <input type="hidden" name="takipedilen" value="@item" />
+                                        <button type="submit" class="btn btn-sm btn-outline-success">Takip Et</button>
+                                    </form>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">Yeni öneri bulunamadı.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/Home/Index" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left-circle"></i> Ana Sayfaya Dön
+            </a>
+        </div>
+    </div>
+</div>

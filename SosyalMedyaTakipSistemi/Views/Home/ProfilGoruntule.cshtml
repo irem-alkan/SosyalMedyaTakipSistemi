@@ -2,17 +2,51 @@
     ViewBag.Title = "Kullanıcı Profili";
     var ziyaretler = ViewBag.Ziyaretler as List<string>;
     var oneriler = ViewBag.Oneriler as List<string>;
+    var takipEttikleri = ViewBag.TakipEttikleri as IEnumerable<string>;
+    var takipciler = ViewBag.Takipciler as List<string>;
 }
 
-<h2>Profil Görüntüleme</h2>
+<h2 class="text-primary">Profil Görüntüleme</h2>
+
+<hr />
+
+<h4>Takip Ettikleri</h4>
+@if (takipEttikleri != null && takipEttikleri.Any())
+{
+    <ul class="list-group mb-3">
+        @foreach (var takip in takipEttikleri)
+        {
+            <li class="list-group-item">@takip</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Takip ettiği kimse yok.</p>
+}
+
+<h4>Takipçileri</h4>
+@if (takipciler != null && takipciler.Any())
+{
+    <ul class="list-group mb-3">
+        @foreach (var kisi in takipciler)
+        {
+            <li class="list-group-item">@kisi</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Takipçisi yok.</p>
+}
 
 <h4>Son Ziyaret Ettiğin Kullanıcılar</h4>
 @if (ziyaretler != null && ziyaretler.Count > 0)
 {
-    <ul>
+    <ul class="list-group mb-3">
         @foreach (var kisi in ziyaretler)
         {
-            <li>@kisi</li>
+            <li class="list-group-item">@kisi</li>
         }
     </ul>
 }
@@ -24,10 +58,17 @@ else
 <h4>Takip Önerileri</h4>
 @if (oneriler != null && oneriler.Count > 0)
 {
-    <ul>
+    <ul class="list-group">
         @foreach (var kisi in oneriler)
         {
-            <li>@kisi</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @kisi
+                <form method="post" asp-action="TakipEt" class="m-0">
+                    <input type="hidden" name="takipeden" value="@ViewBag.Kullanici" />
+                    <input type="hidden" name="takipedilen" value="@kisi" />
+                    <button type="submit" class="btn btn-sm btn-success">Takip Et</button>
+                </form>
+            </li>
         }
     </ul>
 }
@@ -36,4 +77,4 @@ else
     <p>Bu kullanıcıdan sana öneri yok.</p>
 }
 
-<a href="/Home/Index">↩ Ana Sayfa</a>
+<a href="/Home/Index" class="btn btn-outline-primary mt-4">↩ Ana Sayfa</a>

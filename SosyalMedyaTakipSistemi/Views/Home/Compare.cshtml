@@ -1,31 +1,88 @@
 @{
-    ViewBag.Title = "Karşılaştırma Sonuçları";
+    ViewBag.Title = "Kullanıcı Karşılaştırma";
+    var ortak = ViewBag.Ortak as List<string>;
+    var birlesim = ViewBag.Birlesim as List<string>;
+    var fark = ViewBag.Fark as List<string>;
+    var user1 = ViewBag.User1 as string;
+    var user2 = ViewBag.User2 as string;
 }
 
-<h2>@ViewBag.User1 ve @ViewBag.User2 Takip Karşılaştırması</h2>
+<div class="container mt-4">
+    <div class="bg-white shadow rounded p-4">
+        <h2 class="text-center text-primary mb-4">
+            <i class="bi bi-person-vcard-fill"></i> @user1 & <span class="text-danger">@user2</span> Karşılaştırması
+        </h2>
 
-<h4>Ortak Takip Ettikleri:</h4>
-<ul>
-    @foreach (var item in ViewBag.Ortak as List<string>)
-    {
-        <li>@item</li>
-    }
-</ul>
+        <div class="row">
 
-<h4>Birleşim:</h4>
-<ul>
-    @foreach (var item in ViewBag.Birlesim as List<string>)
-    {
-        <li>@item</li>
-    }
-</ul>
+            <div class="col-md-4 mb-4">
+                <div class="card border-success h-100">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-people-fill"></i> Ortak Takip Edilenler
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @if (ortak != null && ortak.Any())
+                        {
+                            foreach (var kisi in ortak)
+                            {
+                                <li class="list-group-item">@kisi</li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">Hiç ortak takip edilen yok.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
 
-<h4>@ViewBag.User1'in Farklı Takip Ettikleri:</h4>
-<ul>
-    @foreach (var item in ViewBag.Fark as List<string>)
-    {
-        <li>@item</li>
-    }
-</ul>
+            <div class="col-md-4 mb-4">
+                <div class="card border-primary h-100">
+                    <div class="card-header bg-primary text-white">
+                        <i class="bi bi-diagram-3-fill"></i> Birleşik Liste
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @if (birlesim != null && birlesim.Any())
+                        {
+                            foreach (var kisi in birlesim)
+                            {
+                                <li class="list-group-item">@kisi</li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">Liste boş.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
 
-<a href="/Home/Index">↩ Geri Dön</a>
+            <div class="col-md-4 mb-4">
+                <div class="card border-warning h-100">
+                    <div class="card-header bg-warning text-dark">
+                        <i class="bi bi-exclamation-circle-fill"></i> @user1’e Özgü Takip Ettikleri
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @if (fark != null && fark.Any())
+                        {
+                            foreach (var kisi in fark)
+                            {
+                                <li class="list-group-item">@kisi</li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">Özgün takip edilen yok.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/Home/Index" class="btn btn-outline-primary">
+                <i class="bi bi-house-door-fill"></i> Ana Sayfa
+            </a>
+        </div>
+    </div>
+</div>

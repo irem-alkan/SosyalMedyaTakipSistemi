@@ -17,7 +17,7 @@ Proje, sabit veriler ile ASP.NET Core MVC mimarisi kullanılarak geliştirilmiş
 
 ---
 
-## 🧠 Kullanılan Veri Yapıları ve Amaçları
+## Kullanılan Veri Yapıları ve Amaçları
 
 ### 1. `Dictionary<string, HashSet>` – Ana Veri Yapısı
 - **Amaç:** Her kullanıcının takip ettiği kişileri saklamak.
@@ -51,7 +51,7 @@ Proje, sabit veriler ile ASP.NET Core MVC mimarisi kullanılarak geliştirilmiş
 
 ---
 
-## 📊 Algoritma Karşılaştırması
+## Algoritma Karşılaştırması
 
 | Veri Yapısı   | Arama | Ekleme | Silme | Kullanım Alanı           |
 |---------------|--------|--------|--------|---------------------------|
